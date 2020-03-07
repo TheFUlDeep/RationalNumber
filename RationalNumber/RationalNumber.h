@@ -1,9 +1,9 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 
 
-//знак хранится в числителе
+//Р·РЅР°Рє С…СЂР°РЅРёС‚СЃСЏ РІ С‡РёСЃР»РёС‚РµР»Рµ
 
 class RN 
 {
@@ -17,7 +17,7 @@ private:
 	void Inverse();
 	RN InverseCpy()const;
 	void Simplify();
-	//RN IntToRN(const int);//добавил этот метод для себя для удобства. Не думаю, что он пригодится
+	//RN IntToRN(const int);//РґРѕР±Р°РІРёР» СЌС‚РѕС‚ РјРµС‚РѕРґ РґР»СЏ СЃРµР±СЏ РґР»СЏ СѓРґРѕР±СЃС‚РІР°. РќРµ РґСѓРјР°СЋ, С‡С‚Рѕ РѕРЅ РїСЂРёРіРѕРґРёС‚СЃСЏ
 	RN DoubleToRN(const double)const;
 public:
 	RN();
@@ -35,7 +35,7 @@ public:
 	RN operator+(const RN&)const;
 	RN operator+(const int)const;
 	RN operator+(const double)const;
-	//когда слева не экземпляр класса, а какой-то другой тип
+	//РєРѕРіРґР° СЃР»РµРІР° РЅРµ СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР°, Р° РєР°РєРѕР№-С‚Рѕ РґСЂСѓРіРѕР№ С‚РёРї
 	friend RN operator+(const int, const RN&);
 	friend RN operator+(const double, const RN&);
 
@@ -73,10 +73,10 @@ public:
 	RN& operator/=(const int);
 	RN& operator/=(const double);
 
-	const RN operator++(int);//это должен быть постфикс
+	const RN operator++(int);//СЌС‚Рѕ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕСЃС‚С„РёРєСЃ
 	RN& operator++();
 
-	const RN operator--(int);//это должен быть постфикс
+	const RN operator--(int);//СЌС‚Рѕ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕСЃС‚С„РёРєСЃ
 	RN& operator--();
 
 	RN operator-()const;

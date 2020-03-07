@@ -1,4 +1,4 @@
-#include "RationalNumber.h"
+п»ї#include "RationalNumber.h"
 
 using namespace std;
 
@@ -45,13 +45,13 @@ void RN::Simplify()
 RN RN::DoubleToRN(const double a)const
 {
 	bool minus = a < 0;
-	int intpart = int(a);//беру только целую часть от дабла
-	intpart = (intpart > 0) ? intpart : (-intpart);//беру это число по модулю
-	//я не придумал, как нормально поместить в инт все, что идет после точки (так как там число флотовое), поэтому сделал костыль через стринг
+	int intpart = int(a);//Р±РµСЂСѓ С‚РѕР»СЊРєРѕ С†РµР»СѓСЋ С‡Р°СЃС‚СЊ РѕС‚ РґР°Р±Р»Р°
+	intpart = (intpart > 0) ? intpart : (-intpart);//Р±РµСЂСѓ СЌС‚Рѕ С‡РёСЃР»Рѕ РїРѕ РјРѕРґСѓР»СЋ
+	//СЏ РЅРµ РїСЂРёРґСѓРјР°Р», РєР°Рє РЅРѕСЂРјР°Р»СЊРЅРѕ РїРѕРјРµСЃС‚РёС‚СЊ РІ РёРЅС‚ РІСЃРµ, С‡С‚Рѕ РёРґРµС‚ РїРѕСЃР»Рµ С‚РѕС‡РєРё (С‚Р°Рє РєР°Рє С‚Р°Рј С‡РёСЃР»Рѕ С„Р»РѕС‚РѕРІРѕРµ), РїРѕСЌС‚РѕРјСѓ СЃРґРµР»Р°Р» РєРѕСЃС‚С‹Р»СЊ С‡РµСЂРµР· СЃС‚СЂРёРЅРі
 	string stringdouble = to_string(a);
 	stringdouble = stringdouble.substr(stringdouble.find(',') + 1);
 	
-	//избавляюсь от нулей в конце
+	//РёР·Р±Р°РІР»СЏСЋСЃСЊ РѕС‚ РЅСѓР»РµР№ РІ РєРѕРЅС†Рµ
 	while (stringdouble[stringdouble.length()-1] == '0') { 
 		stringdouble = stringdouble.substr(0, stringdouble.length() - 1); 
 	}
@@ -82,13 +82,13 @@ RN::RN(const int num1, const int denum1)
 
 	if (!(denum1 < 0 && num1 < 0) && (num1 < 0 || denum1 < 0))
 	{
-		//если дробь отрицательная
+		//РµСЃР»Рё РґСЂРѕР±СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ
 		denum = (denum1 > 0) ? denum1 : (-denum1);
-		num = (num1 > 0) ? (-num1) : num1;//если num >0 то умножаем на -1, если <=0, то так и оставляем
+		num = (num1 > 0) ? (-num1) : num1;//РµСЃР»Рё num >0 С‚Рѕ СѓРјРЅРѕР¶Р°РµРј РЅР° -1, РµСЃР»Рё <=0, С‚Рѕ С‚Р°Рє Рё РѕСЃС‚Р°РІР»СЏРµРј
 	}
 	else
 	{
-		//если дробь положительная
+		//РµСЃР»Рё РґСЂРѕР±СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅР°СЏ
 		denum = denum1;
 		num = num1;
 	}
@@ -160,8 +160,8 @@ RN & RN::operator+=(const double a) { *this = *this + a; return *this; }
 
 RN RN::operator-(const RN &otherRN) const
 {
-	//привести к общему знаменателю и вычесть
-	//копипаста оператора+ только изменен знак
+	//РїСЂРёРІРµСЃС‚Рё Рє РѕР±С‰РµРјСѓ Р·РЅР°РјРµРЅР°С‚РµР»СЋ Рё РІС‹С‡РµСЃС‚СЊ
+	//РєРѕРїРёРїР°СЃС‚Р° РѕРїРµСЂР°С‚РѕСЂР°+ С‚РѕР»СЊРєРѕ РёР·РјРµРЅРµРЅ Р·РЅР°Рє
 	if (denum == otherRN.denum) {
 		RN res(num - otherRN.num, denum);
 		res.Simplify();
@@ -268,7 +268,7 @@ bool RN::operator>(const int a) const { return GetDouble() > a; }
 
 bool RN::operator>(const double a) const { return GetDouble() > a; }
 
-//operator< сделаю НЕ через существующие операторы, чтобы программе выполнять меньше действий
+//operator< СЃРґРµР»Р°СЋ РќР• С‡РµСЂРµР· СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ РѕРїРµСЂР°С‚РѕСЂС‹, С‡С‚РѕР±С‹ РїСЂРѕРіСЂР°РјРјРµ РІС‹РїРѕР»РЅСЏС‚СЊ РјРµРЅСЊС€Рµ РґРµР№СЃС‚РІРёР№
 bool RN::operator<(const RN &rn) const { return GetDouble() > rn.GetDouble(); }
 
 bool RN::operator<(const int a) const { return GetDouble() < a; }
