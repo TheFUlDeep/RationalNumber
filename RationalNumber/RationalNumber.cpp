@@ -62,7 +62,6 @@ RN RN::DoubleToRN(const double a)const
 	int denum1 = int(pow(10, len));
 	RN newRN(intpart * denum1 + intfractpart, denum1);
 	if (minus) newRN.num = -newRN.num;
-	newRN.Simplify();
 	return newRN;
 }
 
