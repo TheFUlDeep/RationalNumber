@@ -19,6 +19,8 @@ int main()
 
 	cout << RN(1./2.) << endl;
 
+	cout << RN(0.) << endl;
+
 	//cout << "Ввести число" << endl;
 	//cin >> a;
 	//cout << "Получили " << a << endl;

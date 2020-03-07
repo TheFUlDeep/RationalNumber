@@ -44,10 +44,11 @@ void RN::Simplify()
 
 RN RN::DoubleToRN(const double a)const
 {
+	if (a == 0) return RN(0);
 	bool minus = a < 0;
 	int intpart = int(a);//беру только целую часть от дабла
 	intpart = (intpart > 0) ? intpart : (-intpart);//беру это число по модулю
-	//я не придумал, как нормально поместить в инт все, что идет после точки (так как там число флотовое), поэтому сделал костыль через стринг
+	//я не придумал, как нормально поместить в инт все, что идет после точки (так как там число флотовое и у меня например 1.2 это 1.9999999999999996), поэтому сделал костыль через стринг
 	string stringdouble = to_string(a);
 	stringdouble = stringdouble.substr(stringdouble.find(',') + 1);
 	
