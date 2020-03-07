@@ -84,7 +84,7 @@ RN::RN(const int num1, const int denum1)
 	{
 		//если дробь отрицательная
 		denum = (denum1 > 0) ? denum1 : (-denum1); //знаменатель по модулю
-		num = (num1 > 0) ? (-num1) : num1;//числитель противоположный
+		num = (num1 > 0) ? (-num1) : num1;//числитель всегда отрицаиельный
 	}
 	else
 	{
