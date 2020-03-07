@@ -1,6 +1,4 @@
 ﻿#include "RationalNumber.h"
-#include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -25,7 +23,7 @@ int main()
 	//cin >> a;
 	//cout << "Получили " << a << endl;
 
-	cout << RN(5, 2).GetInt() << endl;
+	cout << RN(-5, -2) << endl;
 
 	system("pause");
 	return 0;

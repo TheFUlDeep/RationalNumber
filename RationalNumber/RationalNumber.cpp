@@ -83,14 +83,14 @@ RN::RN(const int num1, const int denum1)
 	if (!(denum1 < 0 && num1 < 0) && (num1 < 0 || denum1 < 0))
 	{
 		//если дробь отрицательная
-		denum = (denum1 > 0) ? denum1 : (-denum1);
-		num = (num1 > 0) ? (-num1) : num1;//если num >0 то умножаем на -1, если <=0, то так и оставляем
+		denum = (denum1 > 0) ? denum1 : (-denum1); //знаменатель по модулю
+		num = (num1 > 0) ? (-num1) : num1;//числитель противоположный
 	}
 	else
 	{
-		//если дробь положительная
-		denum = denum1;
-		num = num1;
+		//если дробь положительная беру все по модулю
+		denum = (denum1 > 0) ? denum1 : (-denum1);
+		num = (num1 > 0) ? num1 : (-num1);
 	}
 	Simplify();
 }
