@@ -15,7 +15,6 @@ private:
 	int GCD(const int, const int)const;
 	int LCM(const int, const int)const;
 	void Inverse();
-	RN InverseCpy()const;
 	void Simplify();
 	//RN IntToRN(const int);//добавил этот метод для себя для удобства. Не думаю, что он пригодится
 	RN DoubleToRN(const double)const;
@@ -25,10 +24,12 @@ public:
 	RN(const double);
 	RN(const int, const int);
 
+	//возвращается новая перевернутая дробь
+	RN InverseCpy()const;
+
 	const int GetInt()const;
 	const double GetDouble()const;
 
-	RN& operator=(const RN&);
 	RN& operator=(const int);
 	RN& operator=(const double);
 
@@ -73,10 +74,10 @@ public:
 	RN& operator/=(const int);
 	RN& operator/=(const double);
 
-	const RN operator++(int);//это должен быть постфикс
+	RN operator++(int);//это должен быть постфикс
 	RN& operator++();
 
-	const RN operator--(int);//это должен быть постфикс
+	RN operator--(int);//это должен быть постфикс
 	RN& operator--();
 
 	RN operator-()const;

@@ -17,6 +17,14 @@ int main()
 
 	cout << (RN(1, 2) > a) << endl;
 
+	cout << RN(1./2.) << endl;
+
+	//cout << "Ввести число" << endl;
+	//cin >> a;
+	//cout << "Получили " << a << endl;
+
+	cout << RN(5, 2).GetInt() << endl;
+
 	system("pause");
 	return 0;
 }

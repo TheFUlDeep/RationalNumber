@@ -99,13 +99,6 @@ const int RN::GetInt() const { return int(num / denum); }
 
 const double RN::GetDouble() const { return (double(num) / double(denum)); }
 
-RN & RN::operator=(const RN &other)
-{
-	num = other.num;
-	denum = other.denum;
-	return *this;
-}
-
 RN & RN::operator=(const int a)
 {
 	denum = 1;
@@ -225,7 +218,7 @@ RN & RN::operator/=(const int a) { *this = *this / a; return *this; }
 
 RN & RN::operator/=(const double a) { *this = *this / a; return *this; }
 
-const RN RN::operator++(int)
+RN RN::operator++(int)
 {
 	RN tmpRN(*this);
 	operator+=(1);
@@ -234,7 +227,7 @@ const RN RN::operator++(int)
 
 RN & RN::operator++() { operator+=(1); return *this; }
 
-const RN RN::operator--(int)
+RN RN::operator--(int)
 {
 	RN tmpRN(*this);
 	operator-=(1);
