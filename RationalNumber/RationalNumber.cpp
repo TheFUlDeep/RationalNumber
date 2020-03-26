@@ -134,7 +134,7 @@ RN RN::operator+(const RN &otherRN) const
 		{ 
 			int multiplier = lcm / otherRN.denum;
 			otherdenum = otherRN.denum * multiplier;
-			othernum = num * multiplier;
+			othernum = otherRN.num * multiplier;
 		} 
 		else { otherdenum = otherRN.denum; othernum = otherRN.num; }
 		RN res(thisnum + othernum, thisdenum);
@@ -176,7 +176,7 @@ RN RN::operator-(const RN &otherRN) const
 		{
 			int multiplier = lcm / otherRN.denum;
 			otherdenum = otherRN.denum * multiplier;
-			othernum = num * multiplier;
+			othernum = otherRN.num * multiplier;
 		}
 		else { otherdenum = otherRN.denum; othernum = otherRN.num; }
 		RN res(thisnum - othernum, thisdenum);
@@ -295,9 +295,9 @@ RN operator+(const int left, const RN &right) { return right.operator+(left); }
 
 RN operator+(const double left, const RN &right) { return right.operator+(left); }
 
-RN operator-(const int left, const RN &right) { return right.operator+(-left); }
+RN operator-(const int left, const RN &right) { return (-right).operator+(left); }
 
-RN operator-(const double left, const RN &right) { return right.operator+(-left); }
+RN operator-(const double left, const RN &right) { return (-right).operator+(left); }
 
 RN operator*(const int left, const RN &right) { return right.operator*(left); }
 
