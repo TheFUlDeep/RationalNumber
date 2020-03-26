@@ -25,6 +25,9 @@ int main()
 
 	cout << RN(-5, -2) << endl;
 
+	a = 0.5;
+	cout << (1.) / a << endl;
+
 	system("pause");
 	return 0;
 }
